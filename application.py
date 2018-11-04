@@ -8,7 +8,5 @@ def echo():
 
 @app.route('/registrar', methods=['POST']) 
 def registrar():
-    if not request.json:
-        abort(400)
     print (request.json)
     return json.dumps(request.json)
