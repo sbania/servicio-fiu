@@ -10,5 +10,5 @@ def echo():
 @app.route('/registrar', methods=['POST']) 
 def registrar():
     PM10 = request.form['PM10']
-    PM25 = request.form['2.5']
+    PM25 = request.form['PM2.5']
     return PM10 + '-' + PM25
