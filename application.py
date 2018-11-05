@@ -11,4 +11,6 @@ def echo():
 def registrar():
     PM10 = request.form['PM10']
     PM25 = request.form['PM2.5']
+    f = open("datos.csv", "a")
+    f.write(PM10 + ',' + PM25) 
     return PM10 + '-' + PM25
