@@ -1,4 +1,4 @@
-from flask import Flask, redirect, url_for, request
+from flask import Flask, redirect, url_for, request, send_from_directory
 import json
 import os
 
@@ -19,7 +19,7 @@ def registrar():
 @app.route('/datos/<path:path>', methods=['GET'])
 def serve_file_in_dir(path):
  
-    if not os.path.isfile(os.path.join(static_file_dir, path)):
+    if not os.path.isfile(os.path.join('datos', path)):
         path = os.path.join(path, 'index.html')
  
-    return send_from_directory(static_file_dir, path)
+    return send_from_directory('datos', path)
