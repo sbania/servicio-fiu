@@ -15,7 +15,7 @@ def registrar():
     f.write(PM10 + ',' + PM25 + '\n') 
     return PM10 + '-' + PM25
 
-@app.route('/data/<path:path>', methods=['GET'])
+@app.route('/datos/<path:path>', methods=['GET'])
 def serve_file_in_dir(path):
  
     if not os.path.isfile(os.path.join(static_file_dir, path)):
