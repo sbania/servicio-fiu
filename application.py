@@ -12,7 +12,7 @@ def registrar():
     PM10 = request.form['PM10']
     PM25 = request.form['PM2.5']
     f = open("datos/datos.csv", "a")
-    f.write(PM10 + ',' + PM25) 
+    f.write(PM10 + ',' + PM25 + '\n') 
     return PM10 + '-' + PM25
 
 @app.route('/data/<path:path>', methods=['GET'])
