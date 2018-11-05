@@ -4,7 +4,7 @@ import os
 
 app = Flask(__name__)
 
-@app.route("/echo")
+@app.route("/")
 def echo():
     return "El servicio FIU esta activo!"
 
