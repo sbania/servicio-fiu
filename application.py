@@ -1,6 +1,7 @@
 from flask import Flask, redirect, url_for, request, send_from_directory
 import json
 import os
+import time
 
 app = Flask(__name__)
 
@@ -10,11 +11,12 @@ def echo():
 
 @app.route('/registrar', methods=['POST']) 
 def registrar():
+    time = datetime.datetime.utcnow()
     PM10 = request.form['PM10']
     PM25 = request.form['PM2.5']
     f = open("datos/datos.csv", "a")
-    f.write(PM10 + ',' + PM25 + '\n') 
-    return PM10 + '-' + PM25
+    f.write(time + PM10 + ',' + PM25 + '\n') 
+    return time + '-' + PM25 + '-' + PM10
 
 @app.route('/datos/<path:path>', methods=['GET'])
 def serve_file_in_dir(path):
