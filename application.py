@@ -18,6 +18,12 @@ def registrar():
     f.write(str(t) + ',' + PM25 + ',' + PM10 + '\n') 
     return str(t) + '-' + PM25 + '-' + PM10
 
+@app.route("/reiniciar")
+def reiniciar():
+    f = open("datos/datos.csv", "w")
+    f.write('Time' + ',' + 'PM2.5' + ',' + 'PM10' + '\n') 
+    return "Los datos fueron eliminados"
+
 @app.route('/datos/<path:path>', methods=['GET'])
 def serve_file_in_dir(path):
  
