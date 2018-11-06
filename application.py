@@ -26,8 +26,6 @@ def reiniciar():
 
 @app.route('/datos/<path:path>', methods=['GET'])
 def serve_file_in_dir(path):
- 
-    if not os.path.isfile(os.path.join('datos', path)):
+     if not os.path.isfile(os.path.join('datos', path)):
         path = os.path.join(path, 'index.html')
- 
-    return send_from_directory('datos', path)
+     return send_from_directory('datos', path)
